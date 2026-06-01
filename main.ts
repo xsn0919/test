@@ -25,7 +25,7 @@ async function runScheduler() {
     const body = await page.evaluate(() => document.body.innerText);
 
     console.log("调度器响应内容（前500字符）:");
-    console.log(body.substring(0, 500));
+    console.log("完整响应内容:\n", body);
     console.log(`[${new Date().toISOString()}] 调度器执行完成`);
   } catch (error) {
     console.error("调度器执行失败:", error.message);
