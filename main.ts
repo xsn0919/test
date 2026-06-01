@@ -36,6 +36,7 @@ async function executeTask(taskName: string): Promise<void> {
 }
 
 const staticTasks: Record<string, string> = {
+  "* * * * *": "daily_sync",   // 👈 临时添加：每分钟都执行 daily_sync
   "31 1 * * *": "daily_sync",
   "36 1 * * *": "daily_sync_2",
   "41 1 * * *": "daily_sync_3",
