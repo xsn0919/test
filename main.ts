@@ -36,7 +36,6 @@ async function executeTask(taskName: string): Promise<void> {
 }
 
 const staticTasks: Record<string, string> = {
-  "* * * * *": "daily_sync",   // 👈 临时添加：每分钟都执行 daily_sync
   "31 1 * * *": "daily_sync",
   "36 1 * * *": "daily_sync_2",
   "41 1 * * *": "daily_sync_3",
@@ -76,6 +75,7 @@ function matchCron(cronExpr: string, hour: number, minute: number, dayOfMonth: n
 }
 
 Deno.cron("quant-scheduler", "* * * * *", async () => {
+  console.log("心跳测试", new Date().toISOString());   // 👈 加这行
   const { hour, minute, dayOfMonth, month, dayOfWeek, totalMinutes } = getBeijingTime();
   const tasksToRun: string[] = [];
 
